@@ -1,5 +1,6 @@
 package view;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.FuncionariosBEAN;
 import model.FuncionariosDAO;
@@ -173,7 +174,23 @@ public class Funcionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparFuncActionPerformed
 
     private void btnBuscaFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaFuncActionPerformed
-
+        FuncionariosBEAN funcionarioB = new FuncionariosBEAN();
+        FuncionariosDAO funcionariosD = new FuncionariosDAO();
+        
+        ArrayList<FuncionariosBEAN> lista = new ArrayList<FuncionariosBEAN>();
+        try {
+            MySQLDAO.getConnection();
+            
+            funcionarioB.setIdFuncionario(Integer.parseInt(campoIdFunc.getText()));
+            lista = funcionariosD.findAllFuncionarios(funcionarioB);
+            
+            
+            
+            
+        } catch (Exception e) {
+        }finally{
+            MySQLDAO.terminar();;
+        }
     }//GEN-LAST:event_btnBuscaFuncActionPerformed
 
     private void btnAlterarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFuncActionPerformed

@@ -7,6 +7,15 @@ public class FuncionariosBEAN {
     private String loginFuncionario;
     private String senhaFuncionario;
     private String cargoFuncionario;
+    
+    public FuncionariosBEAN(){}
+
+    public FuncionariosBEAN(int idFuncionario, String nomeFuncionario, String loginFuncionario, String cargoFuncionario) {
+        setIdFuncionario(idFuncionario);
+        setNomeFuncionario(nomeFuncionario);
+        setLoginFuncionario(loginFuncionario);
+        setCargoFuncionario(cargoFuncionario);
+    }
 
     public int getIdFuncionario() {
         return idFuncionario;
