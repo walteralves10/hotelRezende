@@ -1,6 +1,6 @@
 package model;
 
-public class clientesBEAN {
+public class ClientesBEAN {
     
     private int idCliente;
     private String nomeCliente;
@@ -8,7 +8,7 @@ public class clientesBEAN {
     private String emailCliente;
     private int idTelefoneCliente;
     private int idEnderecoCliente;
-    private int idOcupacaoCliente;
+    
 
     public int getIdCliente() {
         return idCliente;
@@ -56,14 +56,6 @@ public class clientesBEAN {
 
     public void setIdEnderecoCliente(int idEnderecoCliente) {
         this.idEnderecoCliente = idEnderecoCliente;
-    }
-
-    public int getIdOcupacaoCliente() {
-        return idOcupacaoCliente;
-    }
-
-    public void setIdOcupacaoCliente(int idOcupacaoCliente) {
-        this.idOcupacaoCliente = idOcupacaoCliente;
     }
     
     

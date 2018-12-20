@@ -10,11 +10,12 @@ public class FuncionariosBEAN {
     
     public FuncionariosBEAN(){}
 
-    public FuncionariosBEAN(int idFuncionario, String nomeFuncionario, String loginFuncionario, String cargoFuncionario) {
-        setIdFuncionario(idFuncionario);
+    public FuncionariosBEAN(String nomeFuncionario, String loginFuncionario, String cargoFuncionario, String senhaFuncionario) {
+        
         setNomeFuncionario(nomeFuncionario);
         setLoginFuncionario(loginFuncionario);
         setCargoFuncionario(cargoFuncionario);
+        setSenhaFuncionario(senhaFuncionario);
     }
 
     public int getIdFuncionario() {

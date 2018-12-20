@@ -1,6 +1,6 @@
 package model;
 
-public class telefonesBEAN {
+public class TelefonesBEAN {
     
     private int idTelefone;
     private String dddTelefone;

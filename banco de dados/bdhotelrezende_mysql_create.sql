@@ -5,7 +5,6 @@ CREATE TABLE `clientes` (
 	`emailcliente` varchar(200),
 	`idtelefonecliente` int NOT NULL,
 	`idenderecocliente` int NOT NULL,
-	`idocupacaocliente` int NOT NULL,
 	PRIMARY KEY (`idcliente`)
 );
 
@@ -30,6 +29,7 @@ CREATE TABLE `ocupacoes` (
 	`idocupacao` int NOT NULL AUTO_INCREMENT,
 	`idquartoocupacao` int NOT NULL,
 	`idservidodequartoocupacao` int NOT NULL,
+	`idclienteocupacao` int NOT NULL,
 	PRIMARY KEY (`idocupacao`)
 );
 
@@ -67,11 +67,11 @@ ALTER TABLE `clientes` ADD CONSTRAINT `clientes_fk0` FOREIGN KEY (`idtelefonecli
 
 ALTER TABLE `clientes` ADD CONSTRAINT `clientes_fk1` FOREIGN KEY (`idenderecocliente`) REFERENCES `enderecos`(`idendereco`);
 
-ALTER TABLE `clientes` ADD CONSTRAINT `clientes_fk2` FOREIGN KEY (`idocupacaocliente`) REFERENCES `ocupacoes`(`idocupacao`);
-
 ALTER TABLE `ocupacoes` ADD CONSTRAINT `ocupacoes_fk0` FOREIGN KEY (`idquartoocupacao`) REFERENCES `quartos`(`idquarto`);
 
 ALTER TABLE `ocupacoes` ADD CONSTRAINT `ocupacoes_fk1` FOREIGN KEY (`idservidodequartoocupacao`) REFERENCES `servidodequarto`(`idservidodequarto`);
+
+ALTER TABLE `ocupacoes` ADD CONSTRAINT `ocupacoes_fk2` FOREIGN KEY (`idclienteocupacao`) REFERENCES `clientes`(`idcliente`);
 
 ALTER TABLE `comprovantes` ADD CONSTRAINT `comprovantes_fk0` FOREIGN KEY (`idclientecomprovante`) REFERENCES `clientes`(`idcliente`);
 

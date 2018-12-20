@@ -5,6 +5,7 @@ public class OcupacoesBEAN {
     private int idOcupacao;
     private int idQuartoOcupacao;
     private int idServicoDeQuartoOcupacao;
+    private int idClienteOcupacao;
 
     public int getIdOcupacao() {
         return idOcupacao;
@@ -29,5 +30,12 @@ public class OcupacoesBEAN {
     public void setIdServicoDeQuartoOcupacao(int idServicoDeQuartoOcupacao) {
         this.idServicoDeQuartoOcupacao = idServicoDeQuartoOcupacao;
     }
-    
+
+    public int getIdClienteOcupacao() {
+        return idClienteOcupacao;
+    }
+
+    public void setIdClienteOcupacao(int idClienteOcupacao) {
+        this.idClienteOcupacao = idClienteOcupacao;
+    }
 }

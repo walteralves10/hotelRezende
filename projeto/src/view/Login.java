@@ -1,8 +1,14 @@
 package view;
 
+import javax.swing.JOptionPane;
+import model.FuncionariosBEAN;
+import model.FuncionariosDAO;
+import model.MySQLDAO;
+
 
 public class Login extends javax.swing.JFrame {
-
+    
+    protected boolean validaLogin;
 
     public Login() {
         initComponents();
@@ -106,13 +112,27 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogarActionPerformed
+        FuncionariosBEAN funcionarioB = new FuncionariosBEAN();
+        FuncionariosDAO funcionariosD = new FuncionariosDAO();
+        try {
+            MySQLDAO.getConnection();
+            funcionarioB.setLoginFuncionario(campoLoginFunc.getText());
+            funcionarioB.setSenhaFuncionario(campoSenhaFunc.getText());
+            
+            if(funcionariosD.isExistFuncionario(funcionarioB)){
+                new Menu().setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Login ou Senha Incorreto!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
-        new Menu().setVisible(true);
         
     }//GEN-LAST:event_btnLogarActionPerformed
 
     private void btnCadastraFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastraFuncActionPerformed
-        
+        new Funcionarios().setVisible(true);
     }//GEN-LAST:event_btnCadastraFuncActionPerformed
 
     public static void main(String args[]) {

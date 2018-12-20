@@ -156,41 +156,40 @@ public class Funcionarios extends javax.swing.JFrame {
             funcionarioB.setCargoFuncionario(campoCargoFunc.getText());
 
             funcionariosD.insertFuncionario(funcionarioB);
-
             JOptionPane.showMessageDialog(null, "Cadastrado!");
+            limpaCampo();
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            MySQLDAO.terminar();
-        }
+        } //finally {
+        //  MySQLDAO.terminar();
+        //}
     }//GEN-LAST:event_btnGravarFuncActionPerformed
 
     private void btnLimparFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparFuncActionPerformed
-        campoNomeFunc.setText("");
-        campoLoginFunc.setText("");
-        campoSenhaFunc.setText("");
-        campoCargoFunc.setText("");
+        limpaCampo();
     }//GEN-LAST:event_btnLimparFuncActionPerformed
 
     private void btnBuscaFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaFuncActionPerformed
         FuncionariosBEAN funcionarioB = new FuncionariosBEAN();
         FuncionariosDAO funcionariosD = new FuncionariosDAO();
-        
+
         ArrayList<FuncionariosBEAN> lista = new ArrayList<FuncionariosBEAN>();
         try {
             MySQLDAO.getConnection();
-            
+
             funcionarioB.setIdFuncionario(Integer.parseInt(campoIdFunc.getText()));
             lista = funcionariosD.findAllFuncionarios(funcionarioB);
-            
-            
-            
-            
+
+            campoNomeFunc.setText(lista.get(0).getNomeFuncionario());
+            campoLoginFunc.setText(lista.get(0).getLoginFuncionario());
+            campoCargoFunc.setText(lista.get(0).getCargoFuncionario());
+            campoSenhaFunc.setText(lista.get(0).getSenhaFuncionario());
+
         } catch (Exception e) {
-        }finally{
-            MySQLDAO.terminar();;
-        }
+        }//finally{
+        //   MySQLDAO.terminar();
+        //}
     }//GEN-LAST:event_btnBuscaFuncActionPerformed
 
     private void btnAlterarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarFuncActionPerformed
@@ -199,21 +198,30 @@ public class Funcionarios extends javax.swing.JFrame {
         try {
             MySQLDAO.getConnection();
 
+            funcionarioB.setIdFuncionario(Integer.parseInt(campoIdFunc.getText()));
             funcionarioB.setNomeFuncionario(campoNomeFunc.getText());
             funcionarioB.setLoginFuncionario(campoLoginFunc.getText());
             funcionarioB.setSenhaFuncionario(campoSenhaFunc.getText());
             funcionarioB.setCargoFuncionario(campoCargoFunc.getText());
 
-            funcionariosD.insertFuncionario(funcionarioB);
+            funcionariosD.updateFuncionario(funcionarioB);
 
             JOptionPane.showMessageDialog(null, "Alterado!");
+            limpaCampo();
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            MySQLDAO.terminar();
-        }
+        } //finally {
+        //    MySQLDAO.terminar();
+        //}
     }//GEN-LAST:event_btnAlterarFuncActionPerformed
+
+    public void limpaCampo() {
+        campoNomeFunc.setText("");
+        campoLoginFunc.setText("");
+        campoSenhaFunc.setText("");
+        campoCargoFunc.setText("");
+    }
 
     public static void main(String args[]) {
 

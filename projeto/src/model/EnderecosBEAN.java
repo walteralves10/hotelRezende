@@ -2,12 +2,12 @@ package model;
 
 public class EnderecosBEAN {
     
-    public int idEndereco;
-    public String ruaEndereco;
-    public String bairroEndereco;
-    public String cidadeEndereco;
-    public String estadoEndereco;
-    public String CEPEndereco;
+    private int idEndereco;
+    private String ruaEndereco;
+    private String bairroEndereco;
+    private String cidadeEndereco;
+    private String estadoEndereco;
+    private String CEPEndereco;
 
     public int getIdEndereco() {
         return idEndereco;
